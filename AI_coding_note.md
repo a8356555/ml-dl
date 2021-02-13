@@ -1,3 +1,4 @@
+**1. Pipeline Practice**
 * 問題1: 怎麼從多層資料夾讀進檔案（numpy 幾x幾的格式）
   * 需要時再計算指定path讀取
 * 問題2: 有些frame沒有 bboxes/landmarks 如何對齊
@@ -30,3 +31,62 @@
 * 問題5: bounding box的座標與label probability怎麼同時預測(尺度不同)
   1. 用不同的model, 再用一個Model把全部models包起來return各自的標的
   2. Yolo方法
+
+* deploy需要
+  * https://github.com/musikalkemist/Deep-Learning-Audio-Application-From-Design-to-Deployment
+  1. 決定如何deploy
+    * online:flask api/uWSGI/docker+nginx/AWS
+    * edge
+  2. 基本需要
+    * prepare_dataset.py
+    * train.py:load_data/prepare_dataset/build_model/train/plot_history/main
+    * server.py: def predict function in flask
+    * client.py: open data->send data to server side->get result from server
+
+            response = request.post(data)
+  3. edge
+  * https://nanonets.com/blog/how-to-easily-detect-objects-with-deep-learning-on-raspberry-pi/
+  * https://www.rs-online.com/designspark/google-teachable-machine-raspberry-pi-4-cn
+    * 縮小model(quantize model)
+    * Install TensorFlow on the Raspberry Pi
+    * 用電腦操作raspberry pi
+      * 拍照/錄影->預測
+
+linux
+* pwd
+* cd
+* mkdir
+* ls
+* cat
+
+os
+* os.walk(path)
+  * return generator: yield tuple(root, folders, files)
+* os.listdir(path)
+* os.path.join()
+  * ''.join((a,b,c))
+* os.path.exists(path)
+* os.path.dirname(path)
+* os.path.basename(path)
+* os.getcwd()
+* os.chdir(path) 
+* os.mkdir(path)
+* os.remove(file_path)
+* shutil.rmtree(folder_path)
+* data->model->deploy
+    
+python
+* sorted vs list.sort()
+  * sorted return a new list while list.sort() operates inplace
+  * when using list, list.sort is faster
+* list to tuple
+  * tuple(list_name)
+* string list to int list
+  * list(map(int, list_name))
+* 改變形狀用np.reshape()即可
+* cv2.VideoCapture().get(number)
+  * 1:現在偵數
+  * 3:寬度
+  * 4:高度
+  * 5:偵率
+  * 7:總偵數
